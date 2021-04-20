@@ -161,8 +161,7 @@
 
 @media (min-aspect-ratio: 16/9) {
   .videoForeground {
-    height: 300%;
-    top: -100%;
+    height: auto;
   }
 }
 @media (max-aspect-ratio: 16/9) {

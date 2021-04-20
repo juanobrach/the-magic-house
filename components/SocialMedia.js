@@ -22,4 +22,7 @@ const Container = styled.div`
   grid-template-columns: 1fr 1fr 1fr;
   width: 25%;
   margin: 0;
+  > div {
+    justify-self: center;
+  }
 `;

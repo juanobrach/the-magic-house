@@ -2,33 +2,10 @@ import { useRef, useEffect } from "react";
 import styled from "styled-components";
 import Head from "next/head";
 import Link from "next/link";
-import styles from "../styles/Home.module.scss";
-import YouTube from "react-youtube";
-import { ProgressSoundPlayer, SocialMedia } from "../components";
+import "../styles/Home.module.scss";
+import { SocialMedia } from "../components";
 
 export default function Home() {
-  const videPlayer = useRef(null);
-
-  const onReady = (event) => {
-    // access to player in all event handlers via event.target
-    // event.target.mute();
-    console.log("event:", event);
-    event.target.playVideo();
-  };
-
-  const onEnd = (event) => {
-    console.log("event:", event);
-    event.target.playVideo();
-  };
-
-  const videoOptions = {
-    playerVars: {
-      autoplay: 1,
-      controls: 0,
-      mute: 1,
-    },
-  };
-
   return (
     <>
       <Head>
@@ -47,13 +24,13 @@ export default function Home() {
             <Link href="/merchandise">MERCHANDISE</Link>
           </ButtonBorder>
         </ButtonsRow>
-        <div className={"videoBackground"}>
-          <div className={"videoForeground"}>
+        <VideoBackground>
+          <VideoForeground>
             <video className="videoTag" autoPlay loop>
               <source src={"/video_background.mp4"} type="video/mp4" />
             </video>
-          </div>
-        </div>
+          </VideoForeground>
+        </VideoBackground>
       </main>
     </>
   );
@@ -103,4 +80,37 @@ const ButtonsRow = styled.div`
   display: flex;
   justify-content: center;
   margin-top: 2em;
+`;
+
+const VideoBackground = styled.div`
+  background: transparent;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  z-index: -99;
+  &::after {
+    display: block;
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+  }
+`;
+
+const VideoForeground = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  > video {
+    height: 100%;
+    width: auto;
+  }
 `;
