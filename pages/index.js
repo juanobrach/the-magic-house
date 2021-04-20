@@ -1,65 +1,106 @@
-import Head from 'next/head'
-import styles from '../styles/Home.module.css'
+import { useRef, useEffect } from "react";
+import styled from "styled-components";
+import Head from "next/head";
+import Link from "next/link";
+import styles from "../styles/Home.module.scss";
+import YouTube from "react-youtube";
+import { ProgressSoundPlayer, SocialMedia } from "../components";
 
 export default function Home() {
+  const videPlayer = useRef(null);
+
+  const onReady = (event) => {
+    // access to player in all event handlers via event.target
+    // event.target.mute();
+    console.log("event:", event);
+    event.target.playVideo();
+  };
+
+  const onEnd = (event) => {
+    console.log("event:", event);
+    event.target.playVideo();
+  };
+
+  const videoOptions = {
+    playerVars: {
+      autoplay: 1,
+      controls: 0,
+      mute: 1,
+    },
+  };
+
   return (
-    <div className={styles.container}>
+    <>
       <Head>
-        <title>Create Next App</title>
+        <title>The Magic House</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className={styles.main}>
-        <h1 className={styles.title}>
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
-        </h1>
-
-        <p className={styles.description}>
-          Get started by editing{' '}
-          <code className={styles.code}>pages/index.js</code>
-        </p>
-
-        <div className={styles.grid}>
-          <a href="https://nextjs.org/docs" className={styles.card}>
-            <h3>Documentation &rarr;</h3>
-            <p>Find in-depth information about Next.js features and API.</p>
-          </a>
-
-          <a href="https://nextjs.org/learn" className={styles.card}>
-            <h3>Learn &rarr;</h3>
-            <p>Learn about Next.js in an interactive course with quizzes!</p>
-          </a>
-
-          <a
-            href="https://github.com/vercel/next.js/tree/master/examples"
-            className={styles.card}
-          >
-            <h3>Examples &rarr;</h3>
-            <p>Discover and deploy boilerplate example Next.js projects.</p>
-          </a>
-
-          <a
-            href="https://vercel.com/import?filter=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-          >
-            <h3>Deploy &rarr;</h3>
-            <p>
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a>
+      <main className="main">
+        <div className="logo-container">
+          <img src="/the_magic_house_blanco.png" width="250px" />
+        </div>
+        <SocialMedia />
+        <ButtonsRow>
+          <ButtonFill>BOOK TICKETS</ButtonFill>
+          <ButtonBorder>
+            <Link href="/merchandise">MERCHANDISE</Link>
+          </ButtonBorder>
+        </ButtonsRow>
+        <div className={"videoBackground"}>
+          <div className={"videoForeground"}>
+            <video className="videoTag" autoPlay loop>
+              <source src={"/video_background.mp4"} type="video/mp4" />
+            </video>
+          </div>
         </div>
       </main>
-
-      <footer className={styles.footer}>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{' '}
-          <img src="/vercel.svg" alt="Vercel Logo" className={styles.logo} />
-        </a>
-      </footer>
-    </div>
-  )
+    </>
+  );
 }
+
+const Footer = styled.footer`
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  display: flex;
+  background: rgb(0 0 0 / 28%);
+  height: 50px;
+`;
+
+const Button = styled.button`
+  padding: 1em 2em;
+  border-radius: 3px;
+  font-family: "Poppins";
+  font-weight: bolder;
+  margin-right: 0.8em;
+  cursor: pointer;
+`;
+
+const ButtonFill = styled(Button)`
+  border: 1px solid transparent;
+
+  background: white;
+  color: black;
+  :hover {
+    background: transparent;
+    border: 1px solid white;
+    color: white;
+  }
+`;
+
+const ButtonBorder = styled(Button)`
+  background: transparent;
+  border: 1px solid white;
+  color: white;
+  :hover {
+    background: white;
+    color: black;
+  }
+`;
+
+const ButtonsRow = styled.div`
+  display: flex;
+  justify-content: center;
+  margin-top: 2em;
+`;
