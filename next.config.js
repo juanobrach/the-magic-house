@@ -1,5 +1,7 @@
-// next.config.js
-const withSass = require("@zeit/next-sass");
-module.exports = withSass({
-  distDir: "build",
-});
+const path = require("path");
+
+module.exports = {
+  sassOptions: {
+    includePaths: [path.join(__dirname, "styles")],
+  },
+};

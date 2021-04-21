@@ -2,7 +2,7 @@ import { useRef, useEffect } from "react";
 import styled from "styled-components";
 import Head from "next/head";
 import Link from "next/link";
-import "../styles/Home.module.scss";
+import styles from "../styles/Home.module.scss";
 import { SocialMedia } from "../components";
 
 export default function Home() {
@@ -11,22 +11,48 @@ export default function Home() {
       <Head>
         <title>The Magic House</title>
         <link rel="icon" href="/favicon.ico" />
+        <link
+          rel="apple-touch-icon"
+          sizes="180x180"
+          href="/apple-touch-icon.png"
+        />
+        <link
+          rel="icon"
+          type="image/png"
+          sizes="32x32"
+          href="/favicon-32x32.png"
+        />
+        <link
+          rel="icon"
+          type="image/png"
+          sizes="16x16"
+          href="/favicon-16x16.png"
+        />
+        <link rel="manifest" href="/site.webmanifest" />
+        <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#232323" />
+        <meta name="msapplication-TileColor" content="#b91d47" />
+        <meta name="theme-color" content="#ffffff" />
       </Head>
 
-      <main className="main">
-        <div className="logo-container">
+      <main className={styles.main}>
+        <div className={styles.logoContainer}>
           <img src="/the_magic_house_blanco.png" width="250px" />
         </div>
         <SocialMedia />
         <ButtonsRow>
-          <ButtonFill>BOOK TICKETS</ButtonFill>
-          <ButtonBorder>
+          <ButtonFill
+            as="a"
+            href="https://www.eventbrite.com/d/mexico--playa-del-carmen/magic-house/"
+          >
+            BOOK TICKETS
+          </ButtonFill>
+          {/* <ButtonBorder>
             <Link href="/merchandise">MERCHANDISE</Link>
-          </ButtonBorder>
+          </ButtonBorder> */}
         </ButtonsRow>
         <VideoBackground>
           <VideoForeground>
-            <video className="videoTag" autoPlay loop>
+            <video className={styles.videoTag} autoPlay={true} loop>
               <source src={"/video_background.mp4"} type="video/mp4" />
             </video>
           </VideoForeground>
@@ -56,7 +82,7 @@ const Button = styled.button`
 
 const ButtonFill = styled(Button)`
   border: 1px solid transparent;
-
+  font-family: "Arial";
   background: white;
   color: black;
   :hover {
@@ -111,6 +137,7 @@ const VideoForeground = styled.div`
   pointer-events: none;
   > video {
     height: 100%;
-    width: auto;
+    width: 100%;
+    object-fit: fill;
   }
 `;
