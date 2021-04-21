@@ -4,15 +4,15 @@ import { Icon } from ".";
 
 export const SocialMedia = () => (
   <Container>
-    <div>
+    <Link href="https://soundcloud.com/nelsoncuberli/sets/the-magic-house-podcast">
       <Icon name="soundcloud" />
-    </div>
-    <div>
+    </Link>
+    <Link href="https://www.youtube.com/channel/UCZDhmZzErW3mKPbjp78mjQg">
       <Icon name="youtube" />
-    </div>
-    <div>
+    </Link>
+    <Link href="https://www.instagram.com/themagichousepdc/">
       <Icon name="instagram" width="16px" />
-    </div>
+    </Link>
   </Container>
 );
 const Container = styled.div`
@@ -22,7 +22,12 @@ const Container = styled.div`
   grid-template-columns: 1fr 1fr 1fr;
   width: 25%;
   margin: 0;
-  > div {
-    justify-self: center;
+`;
+
+const Link = styled.a`
+  margin: 0;
+  justify-self: center;
+  :hover {
+    opacity: 0.5;
   }
 `;
