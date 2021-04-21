@@ -1,9 +1,10 @@
 import { useRef, useEffect } from "react";
 import styled from "styled-components";
 import Head from "next/head";
+import dynamic from "next/dynamic";
 import Link from "next/link";
 import styles from "../styles/Home.module.scss";
-import { SocialMedia } from "../components";
+import { SocialMedia, VideoBackground } from "../components";
 
 export default function Home() {
   return (
@@ -50,13 +51,7 @@ export default function Home() {
             <Link href="/merchandise">MERCHANDISE</Link>
           </ButtonBorder> */}
         </ButtonsRow>
-        <VideoBackground>
-          <VideoForeground>
-            <video className={styles.videoTag} autoPlay={true} loop>
-              <source src={"/video_background.mp4"} type="video/mp4" />
-            </video>
-          </VideoForeground>
-        </VideoBackground>
+        <VideoBackground />
       </main>
     </>
   );
@@ -106,38 +101,4 @@ const ButtonsRow = styled.div`
   display: flex;
   justify-content: center;
   margin-top: 2em;
-`;
-
-const VideoBackground = styled.div`
-  background: transparent;
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  right: 0;
-  left: 0;
-  z-index: -99;
-  &::after {
-    display: block;
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 1;
-  }
-`;
-
-const VideoForeground = styled.div`
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  > video {
-    height: 100%;
-    width: 100%;
-    object-fit: fill;
-  }
 `;
