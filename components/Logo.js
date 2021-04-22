@@ -2,25 +2,6 @@ import React, { FunctionComponent, useEffect } from "react";
 import { anime } from "react-anime";
 
 export const Logo = ({ width, height }) => {
-  useEffect(() => {
-    var pathEls = document.querySelectorAll(".prefix__cls-2");
-    for (var i = 0; i < pathEls.length; i++) {
-      var pathEl = pathEls[i];
-      var offset = anime.setDashoffset(pathEl);
-      pathEl.setAttribute("stroke-dashoffset", offset);
-      anime({
-        targets: pathEl,
-        strokeDashoffset: [offset, 0],
-        duration: anime.random(1000, 5000),
-        delay: anime.random(0, 0),
-        loop: true,
-        direction: "alternate",
-        easing: "easeInOutSine",
-        autoplay: true,
-      });
-    }
-  });
-
   return (
     <svg
       style={{

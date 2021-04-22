@@ -1,8 +1,5 @@
-import { useRef, useEffect } from "react";
 import styled from "styled-components";
 import Head from "next/head";
-import dynamic from "next/dynamic";
-import Link from "next/link";
 import styles from "../styles/Home.module.scss";
 import { SocialMedia, VideoBackground } from "../components";
 

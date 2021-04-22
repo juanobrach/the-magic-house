@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styled from "styled-components";
 import { withSoundCloudAudio } from "react-soundplayer/addons";
+
 import {
   PlayButton as PlayButtonLibrary,
   Progress,
@@ -24,7 +25,12 @@ const prettyTime = (time) => {
 };
 
 export const ProgressSoundPlayer = withSoundCloudAudio((props) => {
-  const { track, currentTime, duration } = props;
+  const { track, currentTime, duration, soundCloudAudio } = props;
+
+  useEffect(() => {
+    soundCloudAudio.play();
+  }, []);
+
   return (
     <Container>
       <PlayButtonContainer>
