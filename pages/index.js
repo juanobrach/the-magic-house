@@ -48,7 +48,7 @@ export default function Home() {
             <Link href="/merchandise">MERCHANDISE</Link>
           </ButtonBorder> */}
         </ButtonsRow>
-        <VideoBackground />
+        {/* <VideoBackground /> */}
       </main>
     </>
   );
