@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import Head from "next/head";
+import Link from "next/link";
 import styles from "../styles/Home.module.scss";
 import { SocialMedia, VideoBackground } from "../components";
 
@@ -40,7 +41,7 @@ export default function Home() {
         <ButtonsRow>
           <ButtonFill
             as="a"
-            href="https://www.eventbrite.com/d/mexico--playa-del-carmen/magic-house/"
+            href="https://www.eventbrite.com/e/the-magic-house-sakro-halo-varga-cris-herrera-nelson-cuberli-tickets-157854104877"
           >
             BOOK TICKETS
           </ButtonFill>
@@ -48,7 +49,7 @@ export default function Home() {
             <Link href="/merchandise">MERCHANDISE</Link>
           </ButtonBorder> */}
         </ButtonsRow>
-        {/* <VideoBackground /> */}
+        <VideoBackground />
       </main>
     </>
   );

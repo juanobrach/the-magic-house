@@ -5,15 +5,14 @@ import { Video, Transformation } from "cloudinary-react";
 export const VideoBackground = () => (
   <Container>
     <VideoForeground>
-      <video autoPlay loop playsinline>
-        <source src="/videos/video1.mp4" type="video/mp4" />
-      </video>
-      <video autoPlay loop playsinline>
-        <source src="/videos/video1.mp4" type="video/mp4" />
-      </video>
-      <video autoPlay loop playsinline>
-        <source src="/videos/video1.mp4" type="video/mp4" />
-      </video>
+      <Video
+        playsInline
+        muted
+        loop
+        autoPlay
+        cloudName="drkj4pgrk"
+        publicId="themagichouse/video_background"
+      ></Video>
     </VideoForeground>
   </Container>
 );
@@ -47,7 +46,8 @@ const VideoForeground = styled.div`
   pointer-events: none;
   > video {
     height: 100%;
-    object-fit: fill;
+    width: 100%;
+    object-fit: cover;
     @media (max-width: 767px) {
       width: auto;
     }

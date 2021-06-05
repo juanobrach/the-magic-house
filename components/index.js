@@ -5,3 +5,4 @@ export { ProgressSoundPlayer } from "./ProgressSoundPlayer";
 export { Products } from "./Products";
 export { Cart } from "./Cart";
 export { VideoBackground } from "./VideoBackground";
+export { Event } from "./Event";
