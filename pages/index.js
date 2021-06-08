@@ -2,7 +2,7 @@ import styled from "styled-components";
 import Head from "next/head";
 import Link from "next/link";
 import styles from "../styles/Home.module.scss";
-import { SocialMedia, VideoBackground, Icon } from "../components";
+import { SocialMedia, VideoBackground, Icon, Pixel } from "../components";
 
 export default function Home() {
   return (
@@ -32,6 +32,7 @@ export default function Home() {
         <meta name="msapplication-TileColor" content="#b91d47" />
         <meta name="theme-color" content="#ffffff" />
       </Head>
+      <Pixel name="FACEBOOK_PIXEL_1" />
 
       <main className={styles.main}>
         <div className={styles.logoContainer}>
