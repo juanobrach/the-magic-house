@@ -4,14 +4,14 @@ import { Icon } from ".";
 
 export const SocialMedia = () => (
   <Container>
-    <Link href="https://soundcloud.com/nelsoncuberli/sets/the-magic-house-podcast">
-      <Icon name="soundcloud" />
+    <Link href="https://www.instagram.com/themagichousesd/">
+      <Icon name="instagram" width="16px" />
     </Link>
     <Link href="https://www.youtube.com/channel/UCZDhmZzErW3mKPbjp78mjQg">
       <Icon name="youtube" />
     </Link>
-    <Link href="https://www.instagram.com/themagichousepdc/">
-      <Icon name="instagram" width="16px" />
+    <Link href="https://soundcloud.com/nelsoncuberli/sets/the-magic-house-podcast">
+      <Icon name="soundcloud" />
     </Link>
   </Container>
 );

@@ -38,22 +38,52 @@ export default function Home() {
           <img src="/the_magic_house_blanco.png" width="250px" />
         </div>
         <SocialMedia />
-        <ButtonsRow>
-          <ButtonFill
-            as="a"
-            href="https://www.eventbrite.com/e/the-magic-house-sakro-halo-varga-cris-herrera-nelson-cuberli-tickets-157854104877"
-          >
-            BOOK TICKETS
-          </ButtonFill>
-          {/* <ButtonBorder>
+        <EventTitle>
+          17 July - The Magic House - SAKRO + Halo Varga + Cris Herrera + Nelson
+          Cuberli
+        </EventTitle>
+        <TicketSection>
+          <Title>Get tickets on:</Title>
+
+          <ButtonsRow>
+            <ButtonFill
+              as="a"
+              href="https://www.eventbrite.com/e/the-magic-house-sakro-halo-varga-cris-herrera-nelson-cuberli-tickets-157854104877"
+            >
+              Eventbrite
+            </ButtonFill>
+            <Separator>Or</Separator>
+            <Qr src="/qr.png" />
+            {/* <ButtonBorder>
             <Link href="/merchandise">MERCHANDISE</Link>
           </ButtonBorder> */}
-        </ButtonsRow>
+          </ButtonsRow>
+        </TicketSection>
         <VideoBackground />
       </main>
     </>
   );
 }
+
+const Separator = styled.span`
+  font-weight: bold;
+  margin: 0 1em;
+`;
+
+const Qr = styled.img`
+  height: 80px;
+`;
+const TicketSection = styled.div``;
+const Title = styled.h2`
+  color: white;
+  text-align: center;
+`;
+const EventTitle = styled.h1`
+  color: white;
+  text-align: center;
+  font-size: 1.1em;
+  text-transform: uppercase;
+`;
 
 const Footer = styled.footer`
   position: fixed;
@@ -69,15 +99,14 @@ const Button = styled.button`
   border-radius: 3px;
   font-family: "Poppins";
   font-weight: bolder;
-  margin-right: 0.8em;
   cursor: pointer;
 `;
 
 const ButtonFill = styled(Button)`
   border: 1px solid transparent;
   font-family: "Arial";
-  background: white;
-  color: black;
+  background: #f05537;
+  color: white;
   :hover {
     background: transparent;
     border: 1px solid white;
