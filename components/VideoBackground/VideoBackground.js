@@ -7,6 +7,7 @@ export const VideoBackground = () => (
     <VideoForeground>
       <Video
         playsInline
+        muted
         loop
         autoPlay
         cloudName="drkj4pgrk"
