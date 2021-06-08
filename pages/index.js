@@ -68,6 +68,7 @@ export default function Home() {
 const Separator = styled.span`
   font-weight: bold;
   margin: 0 1em;
+  color: white;
 `;
 
 const Qr = styled.img`
@@ -107,6 +108,7 @@ const ButtonFill = styled(Button)`
   font-family: "Arial";
   background: #f05537;
   color: white;
+  height: 50px;
   :hover {
     background: transparent;
     border: 1px solid white;
@@ -128,4 +130,5 @@ const ButtonsRow = styled.div`
   display: flex;
   justify-content: center;
   margin-top: 2em;
+  align-items: center;
 `;
