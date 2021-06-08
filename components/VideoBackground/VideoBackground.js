@@ -11,7 +11,7 @@ export const VideoBackground = () => (
         loop
         autoPlay
         cloudName="drkj4pgrk"
-        publicId="themagichouse/video_background"
+        publicId="themagichouse/video_para_pagina"
       ></Video>
     </VideoForeground>
   </Container>

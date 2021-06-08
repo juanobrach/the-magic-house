@@ -2,7 +2,7 @@ import styled from "styled-components";
 import Head from "next/head";
 import Link from "next/link";
 import styles from "../styles/Home.module.scss";
-import { SocialMedia, VideoBackground } from "../components";
+import { SocialMedia, VideoBackground, Icon } from "../components";
 
 export default function Home() {
   return (
@@ -43,17 +43,23 @@ export default function Home() {
           Cuberli
         </EventTitle>
         <TicketSection>
-          <Title>Get tickets on:</Title>
+          <Title>Book Tickets On:</Title>
 
           <ButtonsRow>
             <ButtonFill
               as="a"
               href="https://www.eventbrite.com/e/the-magic-house-sakro-halo-varga-cris-herrera-nelson-cuberli-tickets-157854104877"
             >
-              Eventbrite
+              <Icon name="eventbrite" width="100px" height="15px" />
             </ButtonFill>
             <Separator>Or</Separator>
-            <Qr src="/qr.png" />
+            <ButtonFill
+              as="a"
+              href="https://venmo.com/code?user_id=3220785472733184873"
+              color="white"
+            >
+              <Icon name="venmo" width="100px" height="60px" />
+            </ButtonFill>
             {/* <ButtonBorder>
             <Link href="/merchandise">MERCHANDISE</Link>
           </ButtonBorder> */}
@@ -96,17 +102,19 @@ const Footer = styled.footer`
 `;
 
 const Button = styled.button`
-  padding: 1em 2em;
   border-radius: 3px;
   font-family: "Poppins";
   font-weight: bolder;
   cursor: pointer;
+  align-items: center;
+  display: flex;
+  padding: 0 1em;
 `;
 
 const ButtonFill = styled(Button)`
   border: 1px solid transparent;
   font-family: "Arial";
-  background: #f05537;
+  background: ${({ color }) => color ?? "#f05537"};
   color: white;
   height: 50px;
   :hover {
