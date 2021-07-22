@@ -67,7 +67,7 @@ export default function Home() {
             </FlyerContainer>
 
             <EventTitle as="a" href={activeEvent.links.veno}>
-              BOOK TICKETS NOW
+              GET YOUR TICKETS
             </EventTitle>
           </>
         )}
