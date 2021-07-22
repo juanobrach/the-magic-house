@@ -8,9 +8,7 @@ export const Event = () => {
   });
 
   useEffect(() => {
-    sdk.request("/users/me").then((res) => {
-      console.log("res:", res);
-    });
+    sdk.request("/users/me").then((res) => {});
   }, []);
 
   return <div>Event</div>;

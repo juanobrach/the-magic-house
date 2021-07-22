@@ -13,7 +13,6 @@ export function AppWrapper({ children }) {
     const cartItem = { ...product };
     cartItem.quantity = 1;
     delete cartItem.imageSrc;
-    console.log("product:", product);
 
     setCartItems([...cartItems, cartItem]);
   };

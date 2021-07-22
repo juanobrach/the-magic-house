@@ -1,11 +1,13 @@
 import React from "react";
 import styled from "styled-components";
+import { breakpoints } from "../utils";
+
 import { Icon } from ".";
 
 export const SocialMedia = () => (
   <Container>
     <Link href="https://www.instagram.com/themagichousesd/">
-      <Icon name="instagram" width="16px" />
+      <Icon name="instagram" />
     </Link>
     <Link href="https://www.youtube.com/channel/UCZDhmZzErW3mKPbjp78mjQg">
       <Icon name="youtube" />
@@ -21,7 +23,7 @@ const Container = styled.div`
   justify-content: space-between;
   grid-template-columns: 1fr 1fr 1fr;
   width: 25%;
-  margin: 0;
+  ${breakpoints("width", "%", [{ 800: 70 }])};
 `;
 
 const Link = styled.a`
@@ -29,5 +31,9 @@ const Link = styled.a`
   justify-self: center;
   :hover {
     opacity: 0.5;
+  }
+  svg {
+    width: 2.5em;
+    height: 2.5em;
   }
 `;

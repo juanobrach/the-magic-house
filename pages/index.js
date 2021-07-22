@@ -3,8 +3,12 @@ import Head from "next/head";
 import Link from "next/link";
 import styles from "../styles/Home.module.scss";
 import { SocialMedia, VideoBackground, Icon, Pixel } from "../components";
+import { useEvents, useProducts } from "../hooks";
+import { breakpoints } from "../utils";
 
 export default function Home() {
+  const { activeEvent } = useEvents();
+  console.log("activeEvent:", activeEvent);
   return (
     <>
       <Head>
@@ -31,46 +35,58 @@ export default function Home() {
         <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#232323" />
         <meta name="msapplication-TileColor" content="#b91d47" />
         <meta name="theme-color" content="#ffffff" />
+        <meta name="description" content="Underground House Music Party" />
+
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://themagic.house/" />
+        <meta property="og:title" content="The Magic House " />
+        <meta
+          property="og:description"
+          content="Underground House Music Party"
+        />
+        <meta
+          property="og:image"
+          content={
+            activeEvent
+              ? activeEvent.flyer
+              : "https://images.ctfassets.net/nezh43dj970l/7qlThcdVXDzkMn9qqvslKx/0941c105a13f571cdbce67f31828c927/tmh.jpeg"
+          }
+        />
       </Head>
       <Pixel name="FACEBOOK_PIXEL_1" />
 
       <main className={styles.main}>
-        <div className={styles.logoContainer}>
-          <img src="/the_magic_house_blanco.png" width="250px" />
-        </div>
-        <SocialMedia />
-        <EventTitle>
-          17 July - The Magic House - SAKRO + Halo Varga + Cris Herrera + Nelson
-          Cuberli
-        </EventTitle>
-        <TicketSection>
-          <Title>Book Tickets On:</Title>
+        <LogoContainer>
+          <img src="/the_magic_house_blanco.png" />
+        </LogoContainer>
 
-          <ButtonsRow>
-            <ButtonFill
-              as="a"
-              href="https://www.eventbrite.com/e/the-magic-house-sakro-halo-varga-cris-herrera-nelson-cuberli-tickets-157854104877"
-            >
-              <Icon name="eventbrite" width="100px" height="15px" />
-            </ButtonFill>
-            <Separator>Or</Separator>
-            <ButtonFill
-              as="a"
-              href="https://venmo.com/code?user_id=3220785472733184873"
-              color="white"
-            >
-              <Icon name="venmo" width="100px" height="60px" />
-            </ButtonFill>
-            {/* <ButtonBorder>
-            <Link href="/merchandise">MERCHANDISE</Link>
-          </ButtonBorder> */}
-          </ButtonsRow>
-        </TicketSection>
+        {activeEvent && (
+          <>
+            <FlyerContainer>
+              <img src={activeEvent.flyer} />
+            </FlyerContainer>
+
+            <EventTitle as="a" href={activeEvent.links.veno}>
+              BOOK TICKETS NOW
+            </EventTitle>
+          </>
+        )}
+        <SocialMedia />
         <VideoBackground />
       </main>
     </>
   );
 }
+
+const LogoContainer = styled.div`
+  text-align: center;
+  margin-bottom: 2em;
+
+  > img {
+    width: 300px;
+    ${breakpoints("width", "%", [{ 800: 60 }])};
+  }
+`;
 
 const Separator = styled.span`
   font-weight: bold;
@@ -91,6 +107,10 @@ const EventTitle = styled.h1`
   text-align: center;
   font-size: 1.1em;
   text-transform: uppercase;
+  background: RED;
+  padding: 1em;
+  border-radius: 25px;
+  margin-bottom: 3em;
 `;
 
 const Footer = styled.footer`
@@ -140,4 +160,24 @@ const ButtonsRow = styled.div`
   justify-content: center;
   margin-top: 2em;
   align-items: center;
+`;
+
+const FlyerContainer = styled.div`
+  cursor: pointer;
+  text-align: center;
+  padding: 0 20%;
+  ${breakpoints("padding-left", "%", [{ 800: 0 }])};
+  ${breakpoints("padding-right", "%", [{ 800: 0 }])};
+  margin-bottom: 1em;
+  img {
+    opacity: 0.9;
+    width: 50%;
+    max-width: 100%;
+    ${breakpoints("width", "%", [{ 800: 95 }])};
+  }
+  :hover {
+    img {
+      opacity: 1;
+    }
+  }
 `;
