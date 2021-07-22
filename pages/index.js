@@ -46,11 +46,7 @@ export default function Home() {
         />
         <meta
           property="og:image"
-          content={
-            activeEvent
-              ? activeEvent.flyer
-              : "https://images.ctfassets.net/nezh43dj970l/7qlThcdVXDzkMn9qqvslKx/0941c105a13f571cdbce67f31828c927/tmh.jpeg"
-          }
+          content="https://images.ctfassets.net/nezh43dj970l/7qlThcdVXDzkMn9qqvslKx/4167063b0e8e4dc71867ff18ef92a709/logo_share.jpeg"
         />
       </Head>
       <Pixel name="FACEBOOK_PIXEL_1" />
