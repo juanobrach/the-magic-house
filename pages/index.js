@@ -1,14 +1,14 @@
 import styled from "styled-components";
 import Head from "next/head";
-import Link from "next/link";
 import styles from "../styles/Home.module.scss";
-import { SocialMedia, VideoBackground, Icon, Pixel } from "../components";
-import { useEvents, useProducts } from "../hooks";
+import { SocialMedia, VideoBackground, Pixel } from "../components";
+import { useEvents, useSettings } from "../hooks";
 import { breakpoints } from "../utils";
 
 export default function Home() {
   const { activeEvent } = useEvents();
-  console.log("activeEvent:", activeEvent);
+  const { settings } = useSettings();
+
   return (
     <>
       <Head>
@@ -42,11 +42,19 @@ export default function Home() {
         <meta property="og:title" content="The Magic House " />
         <meta
           property="og:description"
-          content="Underground House Music Party"
+          content={
+            settings
+              ? settings.facebook.share.text
+              : "Underground House Music Party"
+          }
         />
         <meta
           property="og:image"
-          content="https://images.ctfassets.net/nezh43dj970l/7qlThcdVXDzkMn9qqvslKx/4167063b0e8e4dc71867ff18ef92a709/logo_share.jpeg"
+          content={
+            settings
+              ? settings.facebook.share.img
+              : "https://images.ctfassets.net/nezh43dj970l/7qlThcdVXDzkMn9qqvslKx/4167063b0e8e4dc71867ff18ef92a709/logo_share.jpeg"
+          }
         />
       </Head>
       <Pixel name="FACEBOOK_PIXEL_1" />

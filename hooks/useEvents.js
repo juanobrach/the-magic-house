@@ -7,13 +7,11 @@ export const useEvents = () => {
 
   const getEvent = async () => {
     const gt = new Date().toISOString();
-    console.log("gt:", gt);
     const query = await delivery.getEntries({
       content_type: "event",
       "fields.date[gte]": gt,
     });
 
-    console.log("query:", query);
     if (query.total) {
       const event = {
         name: query.items[0].fields.name,
