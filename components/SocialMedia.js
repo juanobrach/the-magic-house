@@ -6,7 +6,7 @@ import { Icon } from ".";
 
 export const SocialMedia = () => (
   <Container>
-    <Link href="https://www.instagram.com/themagichousesd/">
+    <Link href="https://www.instagram.com/themagichouse.tmh/">
       <Icon name="instagram" />
     </Link>
     <Link href="https://www.youtube.com/channel/UCZDhmZzErW3mKPbjp78mjQg">

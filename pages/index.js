@@ -111,6 +111,8 @@ const EventTitle = styled.h1`
   padding: 1em;
   border-radius: 25px;
   margin-bottom: 3em;
+  font-weight: bold;
+  opacity: 0.9;
 `;
 
 const Footer = styled.footer`
