@@ -53,7 +53,7 @@ export default function Home() {
           content={
             settings
               ? settings.facebook.share.img
-              : "https://images.ctfassets.net/nezh43dj970l/7qlThcdVXDzkMn9qqvslKx/4167063b0e8e4dc71867ff18ef92a709/logo_share.jpeg"
+              : "https://images.ctfassets.net/nezh43dj970l/3UZaoABR8rsXtzzz0NYGnh/3515c74ce74a19096f3d47556ac5e781/TMH.png"
           }
         />
       </Head>
