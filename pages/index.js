@@ -9,6 +9,9 @@ export default function Home() {
   const { activeEvent } = useEvents();
   const { settings } = useSettings();
 
+  const venoLink = activeEvent.links.veno;
+  const eventBriteLink = activeEvent.links.eventBrite;
+
   return (
     <>
       <Head>
@@ -70,7 +73,7 @@ export default function Home() {
               <img src={activeEvent.flyer} />
             </FlyerContainer>
 
-            <EventTitle as="a" href={activeEvent.links.veno}>
+            <EventTitle as="a" href={venoLink || eventBriteLink}>
               GET YOUR TICKETS
             </EventTitle>
           </>
